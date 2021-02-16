@@ -47,13 +47,19 @@ namespace FinalSIM
             AñadirColumnaAlDataGrid("proxima llegada", 55);
 
             AñadirColumnaAlDataGrid("Ayudante", 80);
+            AñadirColumnaAlDataGrid("random proposito del cliente", 65);
+            AñadirColumnaAlDataGrid("proposito del cliente", 65);
             AñadirColumnaAlDataGrid("random tiempo atencion", 80);
-            AñadirColumnaAlDataGrid("tiempo atencion", 80);
+            AñadirColumnaAlDataGrid("tiempo atencion", 65);
             AñadirColumnaAlDataGrid("proximo fin atencion", 65);
-            AñadirColumnaAlDataGrid("random proposito del cliente", 80);
-            AñadirColumnaAlDataGrid("proposito del cliente", 80);
+            AñadirColumnaAlDataGrid("cliente en cola", 80);
 
+            AñadirColumnaAlDataGrid("Relojero", 60);
+            AñadirColumnaAlDataGrid("random tiempo reparacion", 60);
+            AñadirColumnaAlDataGrid("tiempo reparacion", 60);
             AñadirColumnaAlDataGrid("proximo fin reparacion", 65);
+            AñadirColumnaAlDataGrid("cola de relojes a reparar", 65);
+            AñadirColumnaAlDataGrid("relojes listos para retirar", 60);
 
         }
 
@@ -80,13 +86,19 @@ namespace FinalSIM
                     i.proximaLlegada,
 
                     i.estadoAyudante,
+                    i.rndPropositoCliente,
+                    i.propositoCliente,                                                       
                     i.rndTiempoAtencion,
                     i.tiempoAtencion,
                     i.proximoFinAtencion,
-                    i.rndPropositoCliente,
-                    i.propositoCliente,                                                       
-                    
+                    i.colaDeClientes,
+
+                    i.estadoRelojero,
+                    i.rndTiempoReparacion,
+                    i.tiempoReparacion,                         
                     i.proximoFinReparacion,
+                    i.colaRelojesPorReparar,
+                    i.colaRelojesListos,
 
                     " ");
             }

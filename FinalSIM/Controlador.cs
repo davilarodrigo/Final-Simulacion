@@ -9,7 +9,7 @@ namespace FinalSIM
     class Controlador
     {
         public int MinTiempoCompra = 6;
-        public int MaxTiempoCompra = 15;
+        public int MaxTiempoCompra = 10;
         public int MinTiempoEncargos = 3;
         public int MaxTiempoEncargos = 3;
         public int MinTiempoRetiros = 3;
@@ -27,7 +27,10 @@ namespace FinalSIM
         public int minutosDeSimulacion = 720;
         public int relojesInicialmenteReparados = 5;
 
-        public bool clienteRetiraCualquierReloj=false;
+        public bool clienteRetiraCualquierReloj=true;
+
+        public int relojesNoTerminadosATiempo=0;
+        public int colaMaximaDeClientes = 0;
 
         Ayudante ayudante;
         Relojero relojero;
@@ -63,6 +66,7 @@ namespace FinalSIM
                         ayudante.NuevoClienteEnCola(iteracion);
                         break;
                     case Evento.Tipos.FinReparacion:
+                        relojero.FinalizarReparacion(iteracion);
                         break;
                     case Evento.Tipos.FinAtencionCliente:
                         ayudante.FinalizarAtencionCliente(iteracion);
@@ -78,6 +82,14 @@ namespace FinalSIM
                 iteracion.estadoAyudante = ayudante.Estado.ToString();
                 iteracion.colaDeClientes = ayudante.clientesEnCola + "";
 
+                if (colaMaximaDeClientes < ayudante.clientesEnCola)
+                {
+                    colaMaximaDeClientes = ayudante.clientesEnCola;
+                }
+
+                iteracion.estadoRelojero = relojero.Estado.ToString();
+                iteracion.colaRelojesPorReparar = relojero.RelojesPorReparar + "";
+                iteracion.colaRelojesListos= relojero.RelojesListos+ "";
                 iteraciones.Add(iteracion);
             }
 
