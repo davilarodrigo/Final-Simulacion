@@ -41,11 +41,20 @@ namespace FinalSIM
         {
             AñadirColumnaAlDataGrid("Evento", 100);
             AñadirColumnaAlDataGrid("Hora", 55);
+
             AñadirColumnaAlDataGrid("random llegada", 55);
             AñadirColumnaAlDataGrid("tiempo llegada", 55);
             AñadirColumnaAlDataGrid("proxima llegada", 55);
+
+            AñadirColumnaAlDataGrid("Ayudante", 80);
+            AñadirColumnaAlDataGrid("random tiempo atencion", 80);
+            AñadirColumnaAlDataGrid("tiempo atencion", 80);
             AñadirColumnaAlDataGrid("proximo fin atencion", 65);
+            AñadirColumnaAlDataGrid("random proposito del cliente", 80);
+            AñadirColumnaAlDataGrid("proposito del cliente", 80);
+
             AñadirColumnaAlDataGrid("proximo fin reparacion", 65);
+
         }
 
 
@@ -65,13 +74,21 @@ namespace FinalSIM
                 gridPrincipal.Rows.Add(
                     i.evento,
                     i.hora,
+
                     i.randomLlegada,
                     i.tiempoLlegada,
                     i.proximaLlegada,
-                    i.proximoFinAtencion,
-                    i.proximoFinReparacion
 
-                    );
+                    i.estadoAyudante,
+                    i.rndTiempoAtencion,
+                    i.tiempoAtencion,
+                    i.proximoFinAtencion,
+                    i.rndPropositoCliente,
+                    i.propositoCliente,                                                       
+                    
+                    i.proximoFinReparacion,
+
+                    " ");
             }
 
         }

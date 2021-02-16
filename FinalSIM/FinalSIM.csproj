@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Ayudante.cs" />
     <Compile Include="Cliente.cs" />
     <Compile Include="Controlador.cs" />
     <Compile Include="Evento.cs" />

@@ -8,26 +8,43 @@ namespace FinalSIM
 {
     class Controlador
     {
+        public int MinTiempoCompra = 6;
+        public int MaxTiempoCompra = 15;
+        public int MinTiempoEncargos = 3;
+        public int MaxTiempoEncargos = 3;
+        public int MinTiempoRetiros = 3;
+        public int MaxTiempoRetiros = 3;
+
         public int MinTiempoLlegadaCliente = 13;
         public int MaxTiempoLlegadaCliente = 17;
-        public int MinTiempoAtencionCompra = 6;
-        public int MaxTiempoAtencionCompra = 10;
-        public int MinTiempoAtencionEntregasYRetiros = 6;
-        public int MaxTiempoAtencionEntregasYRetiros = 10;
         public int MinTiempoReparacion = 18;
         public int MaxTiempoReparacion = 22;
+
+        public int porcentajeLlegadaComprador=45;
+        public int porcentajeLlegadaEncargo=25;
+        public int porcentajeLlegadaRetiro=30;
+
         public int minutosDeSimulacion = 720;
+        public int relojesInicialmenteReparados = 5;
+
+        public bool clienteRetiraCualquierReloj=false;
+
+        Ayudante ayudante;
+        Relojero relojero;
 
         private List<Evento> ProximosEventos = new List<Evento>();
         private List<Iteracion> iteraciones = new List<Iteracion>();
         enum Eventos { Compra, Retiro, Entrega, FinReparacion }
-        public int HoraActual { get; internal set; } = 0;
+        public int HoraActual { get; set; } = 0;
 
         public List<Iteracion> EjercutarSimulacion()
         {
             AgregarEvento(new Evento(Evento.Tipos.Inicio, 0));
             AgregarEvento(new Evento(Evento.Tipos.FinSimulacion, minutosDeSimulacion));
-                        
+
+            relojero = new Relojero(this);
+            ayudante = new Ayudante(this,relojero);
+
             while (HoraActual < minutosDeSimulacion)
             {
                 Evento evento = ObtenerProximoEvento();
@@ -43,10 +60,12 @@ namespace FinalSIM
                 {
                     case Evento.Tipos.LlegadaCliente:
                         GenerarProximaLlegada(iteracion);
+                        ayudante.NuevoClienteEnCola(iteracion);
                         break;
                     case Evento.Tipos.FinReparacion:
                         break;
                     case Evento.Tipos.FinAtencionCliente:
+                        ayudante.FinalizarAtencionCliente(iteracion);
                         break;
                     case Evento.Tipos.Inicio:
                         GenerarProximaLlegada(iteracion);
@@ -56,6 +75,9 @@ namespace FinalSIM
                 }
 
                 CargarHorasDeProximosEventosEnIteracion(iteracion);
+                iteracion.estadoAyudante = ayudante.Estado.ToString();
+                iteracion.colaDeClientes = ayudante.clientesEnCola + "";
+
                 iteraciones.Add(iteracion);
             }
 
@@ -104,7 +126,7 @@ namespace FinalSIM
             iteracion.tiempoLlegada = tiempoLlegada.ToString();
         }
 
-        void AgregarEvento(Evento evento)
+        public void AgregarEvento(Evento evento)
         {
             foreach (var item in ProximosEventos)
             {
