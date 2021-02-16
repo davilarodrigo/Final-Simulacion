@@ -127,13 +127,13 @@ namespace FinalSIM
             controlador.MinTiempoReparacion= Convert.ToInt32(minReparacion.Text);
             controlador.MinTiempoCompra= Convert.ToInt32(minCompra.Text);
             controlador.MinTiempoRetiros= Convert.ToInt32(minRetiro.Text);
-            controlador.MinTiempoEncargos= Convert.ToInt32(minReparacion.Text);
+            controlador.MinTiempoEncargos= Convert.ToInt32(minEntrega.Text);
 
             controlador.MaxTiempoLlegadaCliente = Convert.ToInt32(maxLlegada.Text);
             controlador.MaxTiempoReparacion     = Convert.ToInt32(maxReparacion.Text);
             controlador.MaxTiempoCompra         = Convert.ToInt32(maxCompra.Text);
             controlador.MaxTiempoRetiros        = Convert.ToInt32(maxRetiro.Text);
-            controlador.MaxTiempoEncargos       = Convert.ToInt32(maxReparacion.Text);
+            controlador.MaxTiempoEncargos       = Convert.ToInt32(maxEntrega.Text);
 
             controlador.minutosDeSimulacion = Convert.ToInt32(minutos.Text);
             controlador.relojesInicialmenteReparados = Convert.ToInt32(relojesListos.Text);
