@@ -63,14 +63,13 @@ namespace FinalSIM
 
         public void FinalizarAtencionCliente(Iteracion iteracion)
         {
-            //este "proposito del cliente" es del cliente anterior (el que se esta finalizando de atender)
-            //segun que haya venido a hacer, puede ser que se agregue un reloj, se saque uno, no se haga
-            //nada, o se cuente un "rebote de cliente" porque no estaba el reloj que venia a buscar
             switch (PropositoDelCLiente)
             {
                 case Propositos.Encargar:
+                    relojero.AsignarNuevoRelojParaReparar(iteracion);
                     break;
                 case Propositos.Retirar:
+                    relojero.RetirarReloj(iteracion);
                     break;
                 case Propositos.Comprar:
                     //no hacer nada
@@ -81,8 +80,8 @@ namespace FinalSIM
                 Estado = Estados.Libre;
             }
             else
-            {
-                //en la siguiente funcion se actualiza el proposito del cliente
+            {                
+                clientesEnCola--;
                 comenzarAtencion(iteracion);
             }
         }

@@ -24,6 +24,14 @@ namespace FinalSIM
         public string propositoCliente;
         public string colaDeClientes;
 
+        public string estadoRelojero;
+        public string rndTiempoReparacion;
+        public string tiempoReparacion;
         public string proximoFinReparacion;
+        public string colaRelojesPorReparar;
+        public string colaRelojesListos;
+
+        public string colaMaximaClientes;
+        public string relojesNoTerminadosATiempo;
     }
 }

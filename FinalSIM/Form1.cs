@@ -28,6 +28,7 @@ namespace FinalSIM
         private void Form1_Load(object sender, EventArgs e)
         {
             ConfigurarDataGrid();
+            WindowState = FormWindowState.Maximized;
         }
 
 
@@ -40,19 +41,19 @@ namespace FinalSIM
         private void ConfigurarDataGrid()
         {
             AñadirColumnaAlDataGrid("Evento", 100);
-            AñadirColumnaAlDataGrid("Hora", 55);
+            AñadirColumnaAlDataGrid("Hora", 50);
 
             AñadirColumnaAlDataGrid("random llegada", 55);
-            AñadirColumnaAlDataGrid("tiempo llegada", 55);
+            AñadirColumnaAlDataGrid("tiempo llegada", 50);
             AñadirColumnaAlDataGrid("proxima llegada", 55);
 
-            AñadirColumnaAlDataGrid("Ayudante", 80);
+            AñadirColumnaAlDataGrid("Ayudante", 60);
             AñadirColumnaAlDataGrid("random proposito del cliente", 65);
             AñadirColumnaAlDataGrid("proposito del cliente", 65);
-            AñadirColumnaAlDataGrid("random tiempo atencion", 80);
-            AñadirColumnaAlDataGrid("tiempo atencion", 65);
+            AñadirColumnaAlDataGrid("random tiempo atencion", 65);
+            AñadirColumnaAlDataGrid("tiempo atencion", 60);
             AñadirColumnaAlDataGrid("proximo fin atencion", 65);
-            AñadirColumnaAlDataGrid("cliente en cola", 80);
+            AñadirColumnaAlDataGrid("cliente en cola", 45);
 
             AñadirColumnaAlDataGrid("Relojero", 60);
             AñadirColumnaAlDataGrid("random tiempo reparacion", 60);
@@ -61,6 +62,8 @@ namespace FinalSIM
             AñadirColumnaAlDataGrid("cola de relojes a reparar", 65);
             AñadirColumnaAlDataGrid("relojes listos para retirar", 60);
 
+            AñadirColumnaAlDataGrid("cola maxima de clientes", 65);
+            AñadirColumnaAlDataGrid("relojes no reparados a tiempo", 60);
         }
 
 
@@ -100,7 +103,9 @@ namespace FinalSIM
                     i.colaRelojesPorReparar,
                     i.colaRelojesListos,
 
-                    " ");
+                    i.colaMaximaClientes,
+                    i.relojesNoTerminadosATiempo
+                    );
             }
 
         }
@@ -123,5 +128,40 @@ namespace FinalSIM
 
         }
         #endregion
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label12_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox12_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
