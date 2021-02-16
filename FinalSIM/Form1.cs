@@ -12,7 +12,7 @@ namespace FinalSIM
 {
     public partial class Form1 : Form
     {
-    
+
         /*En un negocio de arreglo y venta de relojes hay un relojero y su ayudante.
         El ayudante tiene como tarea atender a las personas que entran en el negocio 
         (llegan respetando una distribución uniforme entre 13 y 17 minutos), 
@@ -31,7 +31,8 @@ namespace FinalSIM
         }
 
 
-        private void AñadirColumnaAlDataGrid(string nombreColumna, int ancho) {
+        private void AñadirColumnaAlDataGrid(string nombreColumna, int ancho)
+        {
             gridPrincipal.Columns.Add(nombreColumna, nombreColumna);
             gridPrincipal.Columns[nombreColumna].Width = ancho;
         }
@@ -40,7 +41,14 @@ namespace FinalSIM
         {
             AñadirColumnaAlDataGrid("Evento", 100);
             AñadirColumnaAlDataGrid("Hora", 55);
+            AñadirColumnaAlDataGrid("random llegada", 55);
+            AñadirColumnaAlDataGrid("tiempo llegada", 55);
+            AñadirColumnaAlDataGrid("proxima llegada", 55);
+            AñadirColumnaAlDataGrid("proximo fin atencion", 65);
+            AñadirColumnaAlDataGrid("proximo fin reparacion", 65);
         }
+
+
 
         private void VaciarGrid()
         {
@@ -50,11 +58,20 @@ namespace FinalSIM
         private void CargarGrid(List<Iteracion> iteraciones)
         {
             VaciarGrid();
+
+
             foreach (var i in iteraciones)
             {
                 gridPrincipal.Rows.Add(
                     i.evento,
-                    i.hora);
+                    i.hora,
+                    i.randomLlegada,
+                    i.tiempoLlegada,
+                    i.proximaLlegada,
+                    i.proximoFinAtencion,
+                    i.proximoFinReparacion
+
+                    );
             }
 
         }
@@ -62,7 +79,7 @@ namespace FinalSIM
         private void button1_Click(object sender, EventArgs e)
         {
             Controlador controlador = new Controlador();
-            List<Iteracion> iteraciones=controlador.EjercutarSimulacion();
+            List<Iteracion> iteraciones = controlador.EjercutarSimulacion();
             CargarGrid(iteraciones);
         }
 

@@ -8,7 +8,7 @@ namespace FinalSIM
 {
     class Evento
     {
-        public enum Tipos { LlegadaCliente, FinReparacion, FinAtencionCliente, FinSimulacion}
+        public enum Tipos { LlegadaCliente, FinReparacion, FinAtencionCliente, Inicio, FinSimulacion}
         public Tipos Tipo { get; private set; }
         public int HoraDelEvento { get; internal set; }
         

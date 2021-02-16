@@ -10,5 +10,11 @@ namespace FinalSIM
     {
         public string evento;
         public int hora;
+        public string randomLlegada;
+        public string tiempoLlegada;
+
+        public string proximaLlegada;
+        public string proximoFinAtencion;
+        public string proximoFinReparacion;
     }
 }
