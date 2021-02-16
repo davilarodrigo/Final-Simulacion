@@ -30,41 +30,43 @@
         {
             this.gridPrincipal = new System.Windows.Forms.DataGridView();
             this.button1 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.minutos = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.maxLlegada = new System.Windows.Forms.TextBox();
+            this.minLlegada = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.minCompra = new System.Windows.Forms.TextBox();
+            this.maxCompra = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.minEntrega = new System.Windows.Forms.TextBox();
+            this.maxEntrega = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.textBox8 = new System.Windows.Forms.TextBox();
-            this.textBox9 = new System.Windows.Forms.TextBox();
+            this.minRetiro = new System.Windows.Forms.TextBox();
+            this.maxRetiro = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.textBox10 = new System.Windows.Forms.TextBox();
-            this.textBox11 = new System.Windows.Forms.TextBox();
+            this.minReparacion = new System.Windows.Forms.TextBox();
+            this.maxReparacion = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
-            this.textBox12 = new System.Windows.Forms.TextBox();
+            this.probCompra = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
-            this.textBox13 = new System.Windows.Forms.TextBox();
+            this.probRetiro = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
-            this.textBox14 = new System.Windows.Forms.TextBox();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.probEntrega = new System.Windows.Forms.TextBox();
+            this.clienteRetiraCualquiera = new System.Windows.Forms.CheckBox();
+            this.relojesListos = new System.Windows.Forms.TextBox();
+            this.label15 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.gridPrincipal)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -92,25 +94,26 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(1094, 39);
+            this.button1.Location = new System.Drawing.Point(1097, 73);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(238, 23);
+            this.button1.Size = new System.Drawing.Size(235, 23);
             this.button1.TabIndex = 1;
             this.button1.Text = "Simular";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // textBox1
+            // minutos
             // 
-            this.textBox1.Location = new System.Drawing.Point(1187, 13);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(145, 20);
-            this.textBox1.TabIndex = 2;
+            this.minutos.Location = new System.Drawing.Point(1221, 47);
+            this.minutos.Name = "minutos";
+            this.minutos.Size = new System.Drawing.Size(111, 20);
+            this.minutos.TabIndex = 2;
+            this.minutos.Text = "720";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(1094, 16);
+            this.label1.Location = new System.Drawing.Point(1128, 50);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(87, 13);
             this.label1.TabIndex = 3;
@@ -119,8 +122,8 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.textBox3);
-            this.groupBox1.Controls.Add(this.textBox2);
+            this.groupBox1.Controls.Add(this.minLlegada);
+            this.groupBox1.Controls.Add(this.maxLlegada);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Location = new System.Drawing.Point(218, 12);
@@ -150,26 +153,28 @@
             this.label3.TabIndex = 1;
             this.label3.Text = "maximo";
             // 
-            // textBox2
+            // maxLlegada
             // 
-            this.textBox2.Location = new System.Drawing.Point(54, 47);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 20);
-            this.textBox2.TabIndex = 5;
-            this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
+            this.maxLlegada.Location = new System.Drawing.Point(54, 47);
+            this.maxLlegada.Name = "maxLlegada";
+            this.maxLlegada.Size = new System.Drawing.Size(100, 20);
+            this.maxLlegada.TabIndex = 5;
+            this.maxLlegada.Text = "17";
+            this.maxLlegada.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
-            // textBox3
+            // minLlegada
             // 
-            this.textBox3.Location = new System.Drawing.Point(54, 21);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(100, 20);
-            this.textBox3.TabIndex = 5;
-            this.textBox3.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
+            this.minLlegada.Location = new System.Drawing.Point(54, 21);
+            this.minLlegada.Name = "minLlegada";
+            this.minLlegada.Size = new System.Drawing.Size(100, 20);
+            this.minLlegada.TabIndex = 5;
+            this.minLlegada.Text = "13";
+            this.minLlegada.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.textBox4);
-            this.groupBox2.Controls.Add(this.textBox5);
+            this.groupBox2.Controls.Add(this.minCompra);
+            this.groupBox2.Controls.Add(this.maxCompra);
             this.groupBox2.Controls.Add(this.label4);
             this.groupBox2.Controls.Add(this.label5);
             this.groupBox2.Location = new System.Drawing.Point(564, 12);
@@ -180,21 +185,23 @@
             this.groupBox2.Text = "Tiempos de compra";
             this.groupBox2.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
-            // textBox4
+            // minCompra
             // 
-            this.textBox4.Location = new System.Drawing.Point(54, 21);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(100, 20);
-            this.textBox4.TabIndex = 5;
-            this.textBox4.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
+            this.minCompra.Location = new System.Drawing.Point(54, 21);
+            this.minCompra.Name = "minCompra";
+            this.minCompra.Size = new System.Drawing.Size(100, 20);
+            this.minCompra.TabIndex = 5;
+            this.minCompra.Text = "6";
+            this.minCompra.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
-            // textBox5
+            // maxCompra
             // 
-            this.textBox5.Location = new System.Drawing.Point(54, 47);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(100, 20);
-            this.textBox5.TabIndex = 5;
-            this.textBox5.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
+            this.maxCompra.Location = new System.Drawing.Point(54, 47);
+            this.maxCompra.Name = "maxCompra";
+            this.maxCompra.Size = new System.Drawing.Size(100, 20);
+            this.maxCompra.TabIndex = 5;
+            this.maxCompra.Text = "10";
+            this.maxCompra.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
             // label4
             // 
@@ -217,8 +224,8 @@
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.textBox6);
-            this.groupBox3.Controls.Add(this.textBox7);
+            this.groupBox3.Controls.Add(this.minEntrega);
+            this.groupBox3.Controls.Add(this.maxEntrega);
             this.groupBox3.Controls.Add(this.label6);
             this.groupBox3.Controls.Add(this.label7);
             this.groupBox3.Location = new System.Drawing.Point(737, 12);
@@ -229,21 +236,23 @@
             this.groupBox3.Text = "Tiempos de Entrega de Reloj";
             this.groupBox3.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
-            // textBox6
+            // minEntrega
             // 
-            this.textBox6.Location = new System.Drawing.Point(54, 21);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(100, 20);
-            this.textBox6.TabIndex = 5;
-            this.textBox6.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
+            this.minEntrega.Location = new System.Drawing.Point(54, 21);
+            this.minEntrega.Name = "minEntrega";
+            this.minEntrega.Size = new System.Drawing.Size(100, 20);
+            this.minEntrega.TabIndex = 5;
+            this.minEntrega.Text = "3";
+            this.minEntrega.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
-            // textBox7
+            // maxEntrega
             // 
-            this.textBox7.Location = new System.Drawing.Point(54, 47);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(100, 20);
-            this.textBox7.TabIndex = 5;
-            this.textBox7.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
+            this.maxEntrega.Location = new System.Drawing.Point(54, 47);
+            this.maxEntrega.Name = "maxEntrega";
+            this.maxEntrega.Size = new System.Drawing.Size(100, 20);
+            this.maxEntrega.TabIndex = 5;
+            this.maxEntrega.Text = "3";
+            this.maxEntrega.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
             // label6
             // 
@@ -266,8 +275,8 @@
             // 
             // groupBox4
             // 
-            this.groupBox4.Controls.Add(this.textBox8);
-            this.groupBox4.Controls.Add(this.textBox9);
+            this.groupBox4.Controls.Add(this.minRetiro);
+            this.groupBox4.Controls.Add(this.maxRetiro);
             this.groupBox4.Controls.Add(this.label8);
             this.groupBox4.Controls.Add(this.label9);
             this.groupBox4.Location = new System.Drawing.Point(910, 12);
@@ -278,21 +287,23 @@
             this.groupBox4.Text = "Tiempos de Retiro de Reloj";
             this.groupBox4.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
-            // textBox8
+            // minRetiro
             // 
-            this.textBox8.Location = new System.Drawing.Point(54, 21);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(100, 20);
-            this.textBox8.TabIndex = 5;
-            this.textBox8.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
+            this.minRetiro.Location = new System.Drawing.Point(54, 21);
+            this.minRetiro.Name = "minRetiro";
+            this.minRetiro.Size = new System.Drawing.Size(100, 20);
+            this.minRetiro.TabIndex = 5;
+            this.minRetiro.Text = "3";
+            this.minRetiro.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
-            // textBox9
+            // maxRetiro
             // 
-            this.textBox9.Location = new System.Drawing.Point(54, 47);
-            this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(100, 20);
-            this.textBox9.TabIndex = 5;
-            this.textBox9.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
+            this.maxRetiro.Location = new System.Drawing.Point(54, 47);
+            this.maxRetiro.Name = "maxRetiro";
+            this.maxRetiro.Size = new System.Drawing.Size(100, 20);
+            this.maxRetiro.TabIndex = 5;
+            this.maxRetiro.Text = "3";
+            this.maxRetiro.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
             // label8
             // 
@@ -315,8 +326,8 @@
             // 
             // groupBox5
             // 
-            this.groupBox5.Controls.Add(this.textBox10);
-            this.groupBox5.Controls.Add(this.textBox11);
+            this.groupBox5.Controls.Add(this.minReparacion);
+            this.groupBox5.Controls.Add(this.maxReparacion);
             this.groupBox5.Controls.Add(this.label10);
             this.groupBox5.Controls.Add(this.label11);
             this.groupBox5.Location = new System.Drawing.Point(391, 12);
@@ -327,21 +338,23 @@
             this.groupBox5.Text = "Tiempos de Reparacion";
             this.groupBox5.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
-            // textBox10
+            // minReparacion
             // 
-            this.textBox10.Location = new System.Drawing.Point(54, 21);
-            this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(100, 20);
-            this.textBox10.TabIndex = 5;
-            this.textBox10.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
+            this.minReparacion.Location = new System.Drawing.Point(54, 21);
+            this.minReparacion.Name = "minReparacion";
+            this.minReparacion.Size = new System.Drawing.Size(100, 20);
+            this.minReparacion.TabIndex = 5;
+            this.minReparacion.Text = "18";
+            this.minReparacion.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
-            // textBox11
+            // maxReparacion
             // 
-            this.textBox11.Location = new System.Drawing.Point(54, 47);
-            this.textBox11.Name = "textBox11";
-            this.textBox11.Size = new System.Drawing.Size(100, 20);
-            this.textBox11.TabIndex = 5;
-            this.textBox11.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
+            this.maxReparacion.Location = new System.Drawing.Point(54, 47);
+            this.maxReparacion.Name = "maxReparacion";
+            this.maxReparacion.Size = new System.Drawing.Size(100, 20);
+            this.maxReparacion.TabIndex = 5;
+            this.maxReparacion.Text = "22";
+            this.maxReparacion.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
             // label10
             // 
@@ -364,11 +377,11 @@
             // 
             // groupBox6
             // 
-            this.groupBox6.Controls.Add(this.textBox14);
+            this.groupBox6.Controls.Add(this.probEntrega);
             this.groupBox6.Controls.Add(this.label14);
-            this.groupBox6.Controls.Add(this.textBox13);
+            this.groupBox6.Controls.Add(this.probRetiro);
             this.groupBox6.Controls.Add(this.label13);
-            this.groupBox6.Controls.Add(this.textBox12);
+            this.groupBox6.Controls.Add(this.probCompra);
             this.groupBox6.Controls.Add(this.label12);
             this.groupBox6.Location = new System.Drawing.Point(12, 12);
             this.groupBox6.Name = "groupBox6";
@@ -377,13 +390,14 @@
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "probabilidad de finalidad del cliente";
             // 
-            // textBox12
+            // probCompra
             // 
-            this.textBox12.Location = new System.Drawing.Point(76, 24);
-            this.textBox12.Name = "textBox12";
-            this.textBox12.Size = new System.Drawing.Size(100, 20);
-            this.textBox12.TabIndex = 7;
-            this.textBox12.TextChanged += new System.EventHandler(this.textBox12_TextChanged);
+            this.probCompra.Location = new System.Drawing.Point(76, 24);
+            this.probCompra.Name = "probCompra";
+            this.probCompra.Size = new System.Drawing.Size(100, 20);
+            this.probCompra.TabIndex = 7;
+            this.probCompra.Text = "45";
+            this.probCompra.TextChanged += new System.EventHandler(this.textBox12_TextChanged);
             // 
             // label12
             // 
@@ -405,13 +419,14 @@
             this.label13.Text = "Retiro %";
             this.label13.Click += new System.EventHandler(this.label12_Click);
             // 
-            // textBox13
+            // probRetiro
             // 
-            this.textBox13.Location = new System.Drawing.Point(76, 74);
-            this.textBox13.Name = "textBox13";
-            this.textBox13.Size = new System.Drawing.Size(100, 20);
-            this.textBox13.TabIndex = 7;
-            this.textBox13.TextChanged += new System.EventHandler(this.textBox12_TextChanged);
+            this.probRetiro.Location = new System.Drawing.Point(76, 74);
+            this.probRetiro.Name = "probRetiro";
+            this.probRetiro.Size = new System.Drawing.Size(100, 20);
+            this.probRetiro.TabIndex = 7;
+            this.probRetiro.Text = "30";
+            this.probRetiro.TextChanged += new System.EventHandler(this.textBox12_TextChanged);
             // 
             // label14
             // 
@@ -423,39 +438,60 @@
             this.label14.Text = "Entrega %";
             this.label14.Click += new System.EventHandler(this.label12_Click);
             // 
-            // textBox14
+            // probEntrega
             // 
-            this.textBox14.Location = new System.Drawing.Point(76, 48);
-            this.textBox14.Name = "textBox14";
-            this.textBox14.Size = new System.Drawing.Size(100, 20);
-            this.textBox14.TabIndex = 7;
-            this.textBox14.TextChanged += new System.EventHandler(this.textBox12_TextChanged);
+            this.probEntrega.Location = new System.Drawing.Point(76, 48);
+            this.probEntrega.Name = "probEntrega";
+            this.probEntrega.Size = new System.Drawing.Size(100, 20);
+            this.probEntrega.TabIndex = 7;
+            this.probEntrega.Text = "25";
+            this.probEntrega.TextChanged += new System.EventHandler(this.textBox12_TextChanged);
             // 
-            // checkBox1
+            // clienteRetiraCualquiera
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(1129, 79);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(154, 17);
-            this.checkBox1.TabIndex = 6;
-            this.checkBox1.Text = " cliente retira cualquier reloj";
-            this.checkBox1.UseVisualStyleBackColor = true;
-            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            this.clienteRetiraCualquiera.AutoSize = true;
+            this.clienteRetiraCualquiera.Location = new System.Drawing.Point(1134, 103);
+            this.clienteRetiraCualquiera.Name = "clienteRetiraCualquiera";
+            this.clienteRetiraCualquiera.Size = new System.Drawing.Size(154, 17);
+            this.clienteRetiraCualquiera.TabIndex = 6;
+            this.clienteRetiraCualquiera.Text = " cliente retira cualquier reloj";
+            this.clienteRetiraCualquiera.UseVisualStyleBackColor = true;
+            this.clienteRetiraCualquiera.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            // 
+            // relojesListos
+            // 
+            this.relojesListos.Location = new System.Drawing.Point(1221, 21);
+            this.relojesListos.Name = "relojesListos";
+            this.relojesListos.Size = new System.Drawing.Size(111, 20);
+            this.relojesListos.TabIndex = 2;
+            this.relojesListos.Text = "5";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(1094, 24);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(121, 13);
+            this.label15.TabIndex = 3;
+            this.label15.Text = "relojes inicialmente listos";
+            this.label15.Click += new System.EventHandler(this.label1_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1350, 729);
-            this.Controls.Add(this.checkBox1);
+            this.Controls.Add(this.clienteRetiraCualquiera);
             this.Controls.Add(this.groupBox6);
             this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.label15);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.relojesListos);
+            this.Controls.Add(this.minutos);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.gridPrincipal);
             this.Name = "Form1";
@@ -483,41 +519,43 @@
 
         private System.Windows.Forms.DataGridView gridPrincipal;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox minutos;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox maxLlegada;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox minLlegada;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox minCompra;
+        private System.Windows.Forms.TextBox maxCompra;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.TextBox minEntrega;
+        private System.Windows.Forms.TextBox maxEntrega;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.GroupBox groupBox4;
-        private System.Windows.Forms.TextBox textBox8;
-        private System.Windows.Forms.TextBox textBox9;
+        private System.Windows.Forms.TextBox minRetiro;
+        private System.Windows.Forms.TextBox maxRetiro;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.GroupBox groupBox5;
-        private System.Windows.Forms.TextBox textBox10;
-        private System.Windows.Forms.TextBox textBox11;
+        private System.Windows.Forms.TextBox minReparacion;
+        private System.Windows.Forms.TextBox maxReparacion;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.GroupBox groupBox6;
-        private System.Windows.Forms.TextBox textBox12;
+        private System.Windows.Forms.TextBox probCompra;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.TextBox textBox14;
+        private System.Windows.Forms.TextBox probEntrega;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.TextBox textBox13;
+        private System.Windows.Forms.TextBox probRetiro;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.CheckBox clienteRetiraCualquiera;
+        private System.Windows.Forms.TextBox relojesListos;
+        private System.Windows.Forms.Label label15;
     }
 }
 

@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace FinalSIM
-{    
+{
     class Relojero
     {
         public int RelojesListos { get; private set; } = 0;
@@ -22,7 +22,7 @@ namespace FinalSIM
 
         public void AsignarNuevoRelojParaReparar(Iteracion iteracion)
         {
-    
+
             if (RelojesPorReparar == 0)
             {
                 Estado = Estados.Ocupado;
@@ -35,12 +35,12 @@ namespace FinalSIM
         }
 
         private void ComenzarReparacion(Iteracion iteracion)
-        {            
+        {
             double rnd;
-            int tiempoReparacion= GeneradorDistribuciones.UniformeAB(controlador.MinTiempoReparacion, controlador.MaxTiempoReparacion, out rnd);
+            int tiempoReparacion = GeneradorDistribuciones.UniformeAB(controlador.MinTiempoReparacion, controlador.MaxTiempoReparacion, out rnd);
             iteracion.rndTiempoReparacion = rnd.ToString();
-            iteracion.tiempoReparacion= tiempoReparacion.ToString();
-            Evento FinReparacion= new Evento(Evento.Tipos.FinReparacion, tiempoReparacion+ controlador.HoraActual);
+            iteracion.tiempoReparacion = tiempoReparacion.ToString();
+            Evento FinReparacion = new Evento(Evento.Tipos.FinReparacion, tiempoReparacion + controlador.HoraActual);
             controlador.AgregarEvento(FinReparacion);
         }
 
@@ -50,28 +50,49 @@ namespace FinalSIM
             {
                 if (controlador.clienteRetiraCualquierReloj)
                 {
-                RelojesListos--;
+                    iteracion.relojEstaDisponible = "SI";
+                    RelojesListos--;
                 }
                 else
                 {
-                    double rnd;
-                    int totalRelojes = RelojesListos + RelojesPorReparar + 1;
-                    int relojElegido = GeneradorDistribuciones.UniformeAB(0, totalRelojes, out rnd);
+                    List<bool> relojes = new List<bool>();
 
-                    if (relojElegido < RelojesListos)
-                    {                        //el reloj esta listo 
+                    for (int i = 0; i < RelojesListos; i++)
+                    {
+                        relojes.Add(true);
+                    }
+
+                    if (Estado == Estados.Ocupado)
+                    {
+                        //solo si esta ocupado hay relojes esperando
+                        //si esta libre, no hay relojes esperando, sino estaria ocupado
+                        for (int i = 0; i < RelojesPorReparar; i++)
+                        {
+                            relojes.Add(false);
+                        }
+                    }
+
+                    Random random = new Random();
+                    int index = random.Next(relojes.Count);
+                    bool relojTerminado = (relojes[index]);
+
+
+                    if (relojTerminado)
+                    {
+                        iteracion.relojEstaDisponible = "SI";
                         RelojesListos--;
                     }
                     else
-                    {                        //el reloj no esta listo
+                    {
+                        iteracion.relojEstaDisponible = "NO";
                         controlador.relojesNoTerminadosATiempo++;
                     }
 
-                    //aca hay una parte complicada
                 }
             }
             else
             {
+                iteracion.relojEstaDisponible = "NO";
                 controlador.relojesNoTerminadosATiempo++;
             }
         }
@@ -106,17 +127,22 @@ namespace FinalSIM
 
         public bool HayRelojesEnElNegocio()
         {
-            return (HayRelojesEnReparacion() || HayRelojesListosParaRetirar());
-        }
+            if (Estado == Estados.Ocupado)
+            {//si el relojero esta ocupado, entonces hay por lo 
+             //menos un reloj en el negocio (en el cual esta 
+            //trabajando el relojero)
+                return true;
+            }
 
-        public bool HayRelojesEnReparacion()
-        {
-            return (RelojesPorReparar != 0 || Estado==Estados.Ocupado);
-        }
+            //si el relojero esta desocupado, hay que ver si hay
+            //relojes listos a ser retirados, si no, no hay ninguno
 
-        public bool HayRelojesListosParaRetirar()
-        {
-            return (RelojesListos != 0);
+            if (RelojesListos > 0)
+            {
+                return true;
+            }
+
+            return false;
         }
 
 

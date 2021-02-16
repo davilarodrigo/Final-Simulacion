@@ -15,8 +15,8 @@ namespace FinalSIM
         public int MinTiempoRetiros = 3;
         public int MaxTiempoRetiros = 3;
 
-        public int MinTiempoLlegadaCliente = 13;
-        public int MaxTiempoLlegadaCliente = 17;
+        public int MinTiempoLlegadaCliente = 3;
+        public int MaxTiempoLlegadaCliente = 7;
         public int MinTiempoReparacion = 18;
         public int MaxTiempoReparacion = 22;
 
@@ -27,7 +27,7 @@ namespace FinalSIM
         public int minutosDeSimulacion = 720;
         public int relojesInicialmenteReparados = 5;
 
-        public bool clienteRetiraCualquierReloj=true;
+        public bool clienteRetiraCualquierReloj=false;
 
         public int relojesNoTerminadosATiempo=0;
         public int colaMaximaDeClientes = 0;
@@ -86,6 +86,9 @@ namespace FinalSIM
                 {
                     colaMaximaDeClientes = ayudante.clientesEnCola;
                 }
+
+                iteracion.colaMaximaClientes = colaMaximaDeClientes+"";
+                iteracion.relojesNoTerminadosATiempo = relojesNoTerminadosATiempo + "";
 
                 iteracion.estadoRelojero = relojero.Estado.ToString();
                 iteracion.colaRelojesPorReparar = relojero.RelojesPorReparar + "";

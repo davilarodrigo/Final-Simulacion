@@ -41,25 +41,27 @@ namespace FinalSIM
         private void ConfigurarDataGrid()
         {
             AñadirColumnaAlDataGrid("Evento", 100);
-            AñadirColumnaAlDataGrid("Hora", 50);
+            AñadirColumnaAlDataGrid("Minuto", 45);
 
             AñadirColumnaAlDataGrid("random llegada", 55);
             AñadirColumnaAlDataGrid("tiempo llegada", 50);
             AñadirColumnaAlDataGrid("proxima llegada", 55);
 
             AñadirColumnaAlDataGrid("Ayudante", 60);
-            AñadirColumnaAlDataGrid("random proposito del cliente", 65);
-            AñadirColumnaAlDataGrid("proposito del cliente", 65);
-            AñadirColumnaAlDataGrid("random tiempo atencion", 65);
-            AñadirColumnaAlDataGrid("tiempo atencion", 60);
+            AñadirColumnaAlDataGrid("random proposito del cliente", 60);
+            AñadirColumnaAlDataGrid("proposito del cliente", 60);
+            AñadirColumnaAlDataGrid("random tiempo atencion", 60);
+            AñadirColumnaAlDataGrid("tiempo atencion", 55);
             AñadirColumnaAlDataGrid("proximo fin atencion", 65);
             AñadirColumnaAlDataGrid("cliente en cola", 45);
 
-            AñadirColumnaAlDataGrid("Relojero", 60);
+            AñadirColumnaAlDataGrid("Reloj a retirar esta disponible?", 75);
+
+            AñadirColumnaAlDataGrid("Relojero", 55);
             AñadirColumnaAlDataGrid("random tiempo reparacion", 60);
             AñadirColumnaAlDataGrid("tiempo reparacion", 60);
             AñadirColumnaAlDataGrid("proximo fin reparacion", 65);
-            AñadirColumnaAlDataGrid("cola de relojes a reparar", 65);
+            AñadirColumnaAlDataGrid("cola de relojes a reparar", 60);
             AñadirColumnaAlDataGrid("relojes listos para retirar", 60);
 
             AñadirColumnaAlDataGrid("cola maxima de clientes", 65);
@@ -96,6 +98,8 @@ namespace FinalSIM
                     i.proximoFinAtencion,
                     i.colaDeClientes,
 
+                    i.relojEstaDisponible,
+
                     i.estadoRelojero,
                     i.rndTiempoReparacion,
                     i.tiempoReparacion,                         
@@ -113,6 +117,27 @@ namespace FinalSIM
         private void button1_Click(object sender, EventArgs e)
         {
             Controlador controlador = new Controlador();
+
+            controlador.clienteRetiraCualquierReloj = clienteRetiraCualquiera.Checked;
+            controlador.porcentajeLlegadaComprador = Convert.ToInt32(probCompra.Text);
+            controlador.porcentajeLlegadaEncargo = Convert.ToInt32(probEntrega.Text);
+            controlador.porcentajeLlegadaRetiro = Convert.ToInt32(probRetiro.Text);
+
+            controlador.MinTiempoLlegadaCliente= Convert.ToInt32(minLlegada.Text);
+            controlador.MinTiempoReparacion= Convert.ToInt32(minReparacion.Text);
+            controlador.MinTiempoCompra= Convert.ToInt32(minCompra.Text);
+            controlador.MinTiempoRetiros= Convert.ToInt32(minRetiro.Text);
+            controlador.MinTiempoEncargos= Convert.ToInt32(minReparacion.Text);
+
+            controlador.MaxTiempoLlegadaCliente = Convert.ToInt32(maxLlegada.Text);
+            controlador.MaxTiempoReparacion     = Convert.ToInt32(maxReparacion.Text);
+            controlador.MaxTiempoCompra         = Convert.ToInt32(maxCompra.Text);
+            controlador.MaxTiempoRetiros        = Convert.ToInt32(maxRetiro.Text);
+            controlador.MaxTiempoEncargos       = Convert.ToInt32(maxReparacion.Text);
+
+            controlador.minutosDeSimulacion = Convert.ToInt32(minutos.Text);
+            controlador.relojesInicialmenteReparados = Convert.ToInt32(relojesListos.Text);
+
             List<Iteracion> iteraciones = controlador.EjercutarSimulacion();
             CargarGrid(iteraciones);
         }

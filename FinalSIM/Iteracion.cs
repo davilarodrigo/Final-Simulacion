@@ -24,6 +24,8 @@ namespace FinalSIM
         public string propositoCliente;
         public string colaDeClientes;
 
+        public string relojEstaDisponible;
+
         public string estadoRelojero;
         public string rndTiempoReparacion;
         public string tiempoReparacion;
