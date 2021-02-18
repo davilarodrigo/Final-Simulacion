@@ -23,7 +23,7 @@ namespace FinalSIM
         public void AsignarNuevoRelojParaReparar(Iteracion iteracion)
         {
 
-            if (RelojesPorReparar == 0)
+            if (Estado==Estados.Libre)
             {
                 Estado = Estados.Ocupado;
                 ComenzarReparacion(iteracion);

@@ -12,6 +12,12 @@ namespace FinalSIM
 {
     public partial class Form1 : Form
     {
+        int intervalo1a;
+        int intervalo2a;
+        int intervalo3a;
+        int intervalo1b;
+        int intervalo2b;
+        int intervalo3b;
 
         /*En un negocio de arreglo y venta de relojes hay un relojero y su ayudante.
         El ayudante tiene como tarea atender a las personas que entran en el negocio 
@@ -79,61 +85,83 @@ namespace FinalSIM
         {
             VaciarGrid();
 
+            int ultimoIntevalo = Convert.ToInt32(minutos.Text) - Convert.ToInt32(ultimosMinutos.Text);
 
-            foreach (var i in iteraciones)
+            bool cargarIteracion = true;
+
+            for (int x = 0; x < iteraciones.Count; x++)
             {
-                gridPrincipal.Rows.Add(
-                    i.evento,
-                    i.hora,
+                Iteracion i = iteraciones[x];
 
-                    i.randomLlegada,
-                    i.tiempoLlegada,
-                    i.proximaLlegada,
+                if (intervalo1a <= i.hora && i.hora <= intervalo1b) { cargarIteracion = true; }
+                if (intervalo2a <= i.hora && i.hora <= intervalo2b) { cargarIteracion = true; }
+                if (intervalo3a <= i.hora && i.hora <= intervalo3b) { cargarIteracion = true; }
+                if (ultimoIntevalo < i.hora) { cargarIteracion = true; }
 
-                    i.estadoAyudante,
-                    i.rndPropositoCliente,
-                    i.propositoCliente,                                                       
-                    i.rndTiempoAtencion,
-                    i.tiempoAtencion,
-                    i.proximoFinAtencion,
-                    i.colaDeClientes,
+                if (cargarIteracion)
+                {
+                    gridPrincipal.Rows.Add(
+                        i.evento,
+                        i.hora,
 
-                    i.relojEstaDisponible,
+                        i.randomLlegada,
+                        i.tiempoLlegada,
+                        i.proximaLlegada,
 
-                    i.estadoRelojero,
-                    i.rndTiempoReparacion,
-                    i.tiempoReparacion,                         
-                    i.proximoFinReparacion,
-                    i.colaRelojesPorReparar,
-                    i.colaRelojesListos,
+                        i.estadoAyudante,
+                        i.rndPropositoCliente,
+                        i.propositoCliente,
+                        i.rndTiempoAtencion,
+                        i.tiempoAtencion,
+                        i.proximoFinAtencion,
+                        i.colaDeClientes,
 
-                    i.colaMaximaClientes,
-                    i.relojesNoTerminadosATiempo
-                    );
+                        i.relojEstaDisponible,
+
+                        i.estadoRelojero,
+                        i.rndTiempoReparacion,
+                        i.tiempoReparacion,
+                        i.proximoFinReparacion,
+                        i.colaRelojesPorReparar,
+                        i.colaRelojesListos,
+
+                        i.colaMaximaClientes,
+                        i.relojesNoTerminadosATiempo
+                        );
+                    cargarIteracion = false;
+                }
             }
-
+            Iteracion f = iteraciones.Last();
+            Estadisticos.Text = "Maxima cola de clientes: " + f.colaMaximaClientes + ", relojes no reparados a tiempo: " + f.relojesNoTerminadosATiempo;
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             Controlador controlador = new Controlador();
 
+            intervalo1a = Convert.ToInt32(int1a.Text);
+            intervalo2a = Convert.ToInt32(int2a.Text);
+            intervalo3a = Convert.ToInt32(int3a.Text);
+            intervalo1b = Convert.ToInt32(int1b.Text);
+            intervalo2b = Convert.ToInt32(int2b.Text);
+            intervalo3b = Convert.ToInt32(int3b.Text);
+
             controlador.clienteRetiraCualquierReloj = clienteRetiraCualquiera.Checked;
             controlador.porcentajeLlegadaComprador = Convert.ToInt32(probCompra.Text);
             controlador.porcentajeLlegadaEncargo = Convert.ToInt32(probEntrega.Text);
             controlador.porcentajeLlegadaRetiro = Convert.ToInt32(probRetiro.Text);
 
-            controlador.MinTiempoLlegadaCliente= Convert.ToInt32(minLlegada.Text);
-            controlador.MinTiempoReparacion= Convert.ToInt32(minReparacion.Text);
-            controlador.MinTiempoCompra= Convert.ToInt32(minCompra.Text);
-            controlador.MinTiempoRetiros= Convert.ToInt32(minRetiro.Text);
-            controlador.MinTiempoEncargos= Convert.ToInt32(minEntrega.Text);
+            controlador.MinTiempoLlegadaCliente = Convert.ToInt32(minLlegada.Text);
+            controlador.MinTiempoReparacion = Convert.ToInt32(minReparacion.Text);
+            controlador.MinTiempoCompra = Convert.ToInt32(minCompra.Text);
+            controlador.MinTiempoRetiros = Convert.ToInt32(minRetiro.Text);
+            controlador.MinTiempoEncargos = Convert.ToInt32(minEntrega.Text);
 
             controlador.MaxTiempoLlegadaCliente = Convert.ToInt32(maxLlegada.Text);
-            controlador.MaxTiempoReparacion     = Convert.ToInt32(maxReparacion.Text);
-            controlador.MaxTiempoCompra         = Convert.ToInt32(maxCompra.Text);
-            controlador.MaxTiempoRetiros        = Convert.ToInt32(maxRetiro.Text);
-            controlador.MaxTiempoEncargos       = Convert.ToInt32(maxEntrega.Text);
+            controlador.MaxTiempoReparacion = Convert.ToInt32(maxReparacion.Text);
+            controlador.MaxTiempoCompra = Convert.ToInt32(maxCompra.Text);
+            controlador.MaxTiempoRetiros = Convert.ToInt32(maxRetiro.Text);
+            controlador.MaxTiempoEncargos = Convert.ToInt32(maxEntrega.Text);
 
             controlador.minutosDeSimulacion = Convert.ToInt32(minutos.Text);
             controlador.relojesInicialmenteReparados = Convert.ToInt32(relojesListos.Text);
@@ -185,6 +213,21 @@ namespace FinalSIM
         }
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox1_TextChanged_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBox6_Enter(object sender, EventArgs e)
         {
 
         }

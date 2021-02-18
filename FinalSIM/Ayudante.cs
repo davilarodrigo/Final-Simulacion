@@ -41,6 +41,11 @@ namespace FinalSIM
                 probRetiro = 0;
             }
 
+            if(PropositoDelCLiente==Propositos.Encargar && relojero.RelojesListos == 0)
+            {
+                probRetiro =0;
+            }
+
             double rnd;
             int probTotal = probRetiro + probCompra + probEncargo;
             int random = GeneradorDistribuciones.UniformeAB(0, probTotal, out rnd);
@@ -53,7 +58,7 @@ namespace FinalSIM
                 return;
             }
 
-            if (random <= probCompra + probRetiro)
+            if (random < probCompra + probRetiro)
             {
                 PropositoDelCLiente = Propositos.Comprar;
                 return;
